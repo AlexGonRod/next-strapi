@@ -5,6 +5,7 @@ import { Footer } from '@/app/components/footer'
 import { PromoPopup } from '@components/promo-popup'
 import { ProductCard } from '@components/product-card'
 import { ReviewsSection } from '@components/reviews-section'
+import { getHomeInfo } from '@lib/get-home-info'
 
 const products = [
   {
@@ -53,7 +54,9 @@ const products = [
   },
 ]
 
-export default function Home() {
+export default async function Home() {
+	const { Title, Description } = await getHomeInfo()
+	const _description = Description[0].children
   return (
     <>
      <Header />
@@ -61,9 +64,9 @@ export default function Home() {
       
       <main className="flex-1">
         <section className="py-16 text-center bg-gray-50">
-          <h1 className="text-4xl font-bold mb-4">JEWELRY THAT SPEAKS</h1>
+				  <h1 className="text-4xl font-bold mb-4">{ Title}</h1>
           <p className="text-gray-600 max-w-2xl mx-auto px-4">
-            Discover our collection of timeless pieces crafted with care and attention to detail
+            {_description[0].text}
           </p>
         </section>
 
