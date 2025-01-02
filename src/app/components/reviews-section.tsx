@@ -79,12 +79,9 @@ export function ReviewsSection() {
               <Star key={i} className="w-6 h-6 fill-green-500 text-green-500" />
             ))}
           </div>
-          <p className="text-center">
+          <p className="text-center text-sm">
             Valoración de <span className="font-semibold">4.6</span> sobre 5 en base a{' '}
-            <span className="font-semibold">16.400</span> opiniones.{' '}
-            <span className="block text-sm text-gray-500">
-              Nuestras opiniones de 4 y 5 estrellas.
-            </span>
+			<span className="underline">16.400 opiniones</span>.  Nuestras opiniones de 4 y 5 estrellas.	
           </p>
         </div>
 
