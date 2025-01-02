@@ -1,7 +1,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { getMetadata } from "./lib/get-metadata";
+import { Metadata, } from 'next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 
-export async function generateMetadata() {
-	const {title, siteDescription: description} = await getMetadata()
-	return {
-		title,
-		description
-  }
+export const metadata: Metadata = {
+	title: {
+		template: '%s -  JewelSite',
+		default: 'San Saru'
+	},
+	description: 'Joyas con alma'
 }
 
 export default async function RootLayout({
