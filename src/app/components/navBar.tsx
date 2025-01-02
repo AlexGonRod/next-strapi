@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { getNavigation } from '@lib/get-navigation'
-import { Search, User, Heart, ShoppingBag, Menu } from 'lucide-react'
+import { Search, User, Heart, ShoppingBag } from 'lucide-react'
 import { Button } from '@components/ui/button'
 
 export async function Nav() {
@@ -8,7 +8,7 @@ export async function Nav() {
 	const object = Object.entries(nav)
 
 	return (
-					<nav className="container border-b mx-auto px-4 hidden items-center justify-between h-16 md:h-20  md:flex">
+					<nav className="container  mx-auto px-4 hidden items-center justify-between h-16 md:h-20  md:flex">
 						<Link href="/" className="text-2xl font-bold tracking-tight">
 							SANSARU
 						</Link>
