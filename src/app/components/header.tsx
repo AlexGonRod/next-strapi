@@ -1,6 +1,4 @@
-import Link from 'next/link'
-import { Search, User, Heart, ShoppingBag, Menu } from 'lucide-react'
-import { Button } from '@components/ui/button'
+
 import { Nav } from '@components/navBar'
 import {
   Sheet,
@@ -13,8 +11,8 @@ export async function Header() {
 	const header =await getHeader()
 	
   return (
-    <header className="relative">
-      <div className="bg-secondary text-accent text-center text-sm py-2">
+	  <header className="relative">
+      <div className="bg-accent text-secondary font-bold text-center text-sm py-2">
         {header.Title}
       </div>
       
