@@ -1,31 +1,11 @@
-'use client'
-
-import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
+import { getFooter } from '@lib/get-footer'
 
-const paymentMethods = [
-  { name: 'American Express', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Apple Pay', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Google Pay', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Maestro', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Mastercard', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'PayPal', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Shop Pay', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Union Pay', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Visa', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Bizum', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'MB WAY', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Klarna', image: '/placeholder.svg?height=32&width=32' },
-  { name: 'Swish', image: '/placeholder.svg?height=32&width=32' },
-]
+export async function Footer() {
+	const footer = await getFooter()
+	const _entries = Object.entries(footer)
 
-export function Footer() {
-  const [language, setLanguage] = useState('Español')
-  const [currency, setCurrency] = useState('TWD')
-
-  return (
+	return (
     // <footer className="border-t py-6">
     //   <div className="container mx-auto px-4">
     //     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -97,8 +77,17 @@ export function Footer() {
     //     </div>
     //   </div>
     // </footer>
-	
-	<div className="new-footer-policy__bottom-row page-width"><small className="site-footer__copyright-content"><a href="/pages/condiciones-generales" rel="”nofollow”">Condiciones generales</a> - <a href="/pages/aviso-legal" rel="”nofollow”">Aviso legal</a> - <a href="/pages/politica-de-privacidad" rel="”nofollow”">Política de privacidad</a> - <a href="/pages/politica-de-cookies" rel="”nofollow”">Política de Cookies</a></small></div>
-  )
+	<footer className='container mx-auto px-4 '>
+		  <div className="flex justify-start align-middle flex-wrap text-xs">
+				<ul className="flex justify-start align-middle flex-wrap text-xs">
+					{_entries.map(([key,value]) => (
+						<li key={key} className="mr-1">
+							<Link href={`/pages/${key}`} rel="”nofollow”">{value} </Link>
+						</li>
+					))}
+			</ul>
+		</div>
+ 	</footer>
+	)
 }
 
